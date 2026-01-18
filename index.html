@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Acceso con QR y contraseña</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 60px;
+    }
+    #contenido {
+        display: none;
+        margin-top: 30px;
+        font-size: 18px;
+    }
+    input, button {
+        padding: 10px;
+        font-size: 16px;
+        margin: 5px;
+    }
+</style>
+</head>
+<body>
+
+<h1>🔒 Acceso privado</h1>
+
+<p>Introduce la contraseña:</p>
+
+<input type="password" id="password" placeholder="Contraseña">
+<br>
+<button onclick="verificar()">Entrar</button>
+
+<p id="error" style="color:red;"></p>
+
+<div id="contenido">
+    <h2>✅ Acceso concedido</h2>
+    <p>
+        Este es el texto secreto que solo se ve después de poner la contraseña.
+        <br><br>
+        🎉 ¡Funciona!
+    </p>
+</div>
+
+<script>
+    const PASSWORD_CORRECTA = "1234"; // ← cambia esto
+
+    function verificar() {
+        const pass = document.getElementById("password").value;
+        if (pass === PASSWORD_CORRECTA) {
+            document.getElementById("contenido").style.display = "block";
+            document.getElementById("error").textContent = "";
+        } else {
+            document.getElementById("error").textContent = "Contraseña incorrecta";
+        }
+    }
+</script>
+
+</body>
+</html>
